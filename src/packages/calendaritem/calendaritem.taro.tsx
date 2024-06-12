@@ -837,7 +837,7 @@ export const CalendarItem = React.forwardRef<
                             !renderDayBottom &&
                             showToday &&
                             isCurrDay(month, day.day) && (
-                              <div className={`${classPrefix}-day-info-curr`}>
+                              <div className={`${classPrefix}-day-info-top`}>
                                 {locale.calendaritem.today}
                               </div>
                             )}
