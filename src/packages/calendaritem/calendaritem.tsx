@@ -818,11 +818,12 @@ export const CalendarItem = React.forwardRef<
                           <div className={`${classPrefix}-day-day`}>
                             {renderDay ? renderDay(day) : day.day}
                           </div>
-                          {!isStartTip(day, month) && renderDayTop && (
-                            <div className={`${classPrefix}-day-info-top`}>
-                              {renderDayTop(day)}
-                            </div>
-                          )}
+                          {!(isStartTip(day, month) && isEndTip(day, month)) &&
+                            renderDayTop && (
+                              <div className={`${classPrefix}-day-info-top`}>
+                                {renderDayTop(day)}
+                              </div>
+                            )}
                           {!isStartTip(day, month) &&
                             !isEndTip(day, month) &&
                             renderDayBottom && (
@@ -830,8 +831,16 @@ export const CalendarItem = React.forwardRef<
                                 {renderDayBottom(day)}
                               </div>
                             )}
-                          {!isStartTip(day, month) &&
+                          {/* {!isStartTip(day, month) &&
                             !isEndTip(day, month) &&
+                            !renderDayBottom &&
+                            showToday &&
+                            isCurrDay(month, day.day) && (
+                              <div className={`${classPrefix}-day-info-curr`}>
+                                {locale.calendaritem.today}
+                              </div>
+                            )} */}
+                          {!(isStartTip(day, month) && isEndTip(day, month)) &&
                             !renderDayBottom &&
                             showToday &&
                             isCurrDay(month, day.day) && (
